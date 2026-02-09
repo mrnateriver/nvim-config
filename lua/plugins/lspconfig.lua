@@ -13,6 +13,8 @@ return {
 
 		-- Allows extra capabilities provided by blink.cmp
 		"saghen/blink.cmp",
+
+		"Hoffs/omnisharp-extended-lsp.nvim",
 	},
 	config = function()
 		--  This function gets run when an LSP attaches to a particular buffer.
@@ -92,6 +94,15 @@ return {
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 					end, "[T]oggle Inlay [H]ints")
 				end
+
+				if client and client.name == "omnisharp" then
+					vim.schedule(function()
+						map("grd", require("omnisharp_extended").lsp_definition, "[G]oto [D]efinition")
+						map("grr", require("omnisharp_extended").lsp_references, "[G]oto [R]eferences")
+						map("gri", require("omnisharp_extended").lsp_implementation, "[G]oto [I]mplementation")
+						map("grt", require("omnisharp_extended").lsp_type_definition, "[G]oto [T]ype Definition")
+					end)
+				end
 			end,
 		})
 
@@ -122,6 +133,13 @@ return {
 			rust_analyzer = {},
 			lua_ls = {},
 			eslint = {},
+			omnisharp = {
+				settings = {
+					omnisharp = {
+						enableDecompilationSupport = true,
+					},
+				},
+			},
 			--
 			-- Some languages (like typescript) have entire language plugins that can be useful:
 			--    https://github.com/pmizio/typescript-tools.nvim
@@ -158,6 +176,7 @@ return {
 			-- "lua_ls", -- Lua Language server -- this is Mason package name, whereas lua_ls is lspconfig name
 			"stylua", -- Used to format Lua code
 			"prettierd", -- Used to format Lua code
+			"csharpier", -- Used to format C# code
 			-- You can add other tools here that you want Mason to install
 		})
 

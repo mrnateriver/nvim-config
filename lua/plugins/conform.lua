@@ -37,6 +37,7 @@ return { -- Autoformat
 			-- You can use 'stop_after_first' to run the first available formatter from the list
 			lua = { "stylua" },
 			rust = { "rustfmt" },
+			cs = { "csharpier" },
 			javascript = js,
 			typescript = js,
 			javascriptreact = js,
