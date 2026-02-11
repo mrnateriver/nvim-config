@@ -97,6 +97,7 @@ return {
 
 				if client and client.name == "omnisharp" then
 					vim.schedule(function()
+						map("gd", require("omnisharp_extended").lsp_definition, "[G]oto [D]efinition")
 						map("grd", require("omnisharp_extended").lsp_definition, "[G]oto [D]efinition")
 						map("grr", require("omnisharp_extended").lsp_references, "[G]oto [R]eferences")
 						map("gri", require("omnisharp_extended").lsp_implementation, "[G]oto [I]mplementation")
