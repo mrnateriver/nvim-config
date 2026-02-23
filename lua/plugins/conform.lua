@@ -1,4 +1,5 @@
 local js = { "prettierd", "prettier", stop_after_first = true }
+local json = { "prettierd", "prettier", stop_after_first = true }
 
 return { -- Autoformat
 	"stevearc/conform.nvim",
@@ -42,6 +43,9 @@ return { -- Autoformat
 			typescript = js,
 			javascriptreact = js,
 			typescriptreact = js,
+			json = json,
+			jsonc = json,
+			jsonl = json,
 		},
 	},
 }
