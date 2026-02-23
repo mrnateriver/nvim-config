@@ -1,5 +1,4 @@
-local js = { "prettierd", "prettier", stop_after_first = true }
-local json = { "prettierd", "prettier", stop_after_first = true }
+local prettier = { "prettierd", "prettier", stop_after_first = true }
 
 return { -- Autoformat
 	"stevearc/conform.nvim",
@@ -39,13 +38,16 @@ return { -- Autoformat
 			lua = { "stylua" },
 			rust = { "rustfmt" },
 			cs = { "csharpier" },
-			javascript = js,
-			typescript = js,
-			javascriptreact = js,
-			typescriptreact = js,
-			json = json,
-			jsonc = json,
-			jsonl = json,
+			javascript = prettier,
+			typescript = prettier,
+			javascriptreact = prettier,
+			typescriptreact = prettier,
+			json = prettier,
+			jsonc = prettier,
+			jsonl = prettier,
+			html = prettier,
+			htmlangular = prettier,
+			yaml = prettier,
 		},
 	},
 }
